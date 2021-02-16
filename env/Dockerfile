@@ -1,10 +1,13 @@
-FROM python:3
+From python:3.7.9-slim-buster
 
-WORKDIR /usr/src/app
+RUN apt-get update --yes \
+  && apt-get install --yes --no-install-recommends \
+    apt-utils \
+    git \
+  && apt-get purge \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "./your-daemon-or-script.py" ]
+RUN python -m pip install -U pip \
+  && git clone https://github.com/SCCAF/sccaf \
+  && pip install --no-cache-dir ./sccaf
