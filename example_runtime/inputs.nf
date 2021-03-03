@@ -6,7 +6,7 @@ params {
     // Make sure copy_mode is either "copy" or "move" when remove_workdir = true
 
     sample_collection_label = "superloading_scrna9323395"
-    anndata_h5filnam = "/lustre/scratch115/teams/soranzo/users/hp3/nextflow/testdata/scrna9323395_Leiden.h5ad"
+    anndata_h5filnam = "/lustre/scratch123/hgi/projects/ukbb_scrna/pipelines/hp3_dev/nextflow/testdata/scrna9323395_Leiden.h5ad"
     // sccaf CLI parameters:
 	  anndata_slot_clustering = "leiden" // anndata.obs column name (slot) for initial cluster assignments
     accuracy_threshold = "0.91"        // target accuracy for stopping cluster mergers
