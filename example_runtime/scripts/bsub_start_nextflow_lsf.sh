@@ -16,7 +16,7 @@ bsub -G team151 \
      -n 2 \
      -o bsub.o -e bsub.e \
      -q ${queue} \
-     bash scripts/start_nextflow_lsf.sh > bjob.id
+     bash ./example_runtime/scripts/start_nextflow_lsf.sh > bjob.id
 
 # get process PID
 echo "Nextflow Bjob ID saved in file bjob.id"

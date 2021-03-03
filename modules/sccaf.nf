@@ -7,7 +7,7 @@ process sccaf {
   params.sccaf.run
 
   input:
-  tuple val(sample_collection_label), path(anndata_file_name), val(anndata_slot_for_initial_cluster_assignment), val(accuracy_threshold), val(n_cores)
+  tuple path(anndata_file_name)
 
   output:
   tuple val(sample_collection_label), path("sccaf_${samplename_collection_label}/*"), emit: output_dir
@@ -17,7 +17,7 @@ process sccaf {
   """
   umask 2 # make files group_writable
 
-  sccaf -i ${anndata_file_name} --optimise -s ${anndata_slot_for_initial_cluster_assignment} -a ${accuracy_threshold} -c ${n_cores} --produce-rounds-summary
+  sccaf -i ${anndata_file_name} --optimise -s ${params.sccaf.anndata_slot_clustering} -a ${params.sccaf.accuracy_threshold} -c ${task.cpus} --produce-rounds-summary
   # eventually run with --skip-assessment
   # -a: Accuracy threshold for convergence of the optimisation procedure.
   """
