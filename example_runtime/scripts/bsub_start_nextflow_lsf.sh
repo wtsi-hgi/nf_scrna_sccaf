@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+mem=2400
+queue=yesterday
+
 # clean up previous run files
 rm -f *.log
 rm -f bsub.o
@@ -7,13 +10,12 @@ rm -f bsub.e
 rm -f bjob.id
 
 # start Nextflow via bsub:
-mem=4000
 bsub -G team151 \
      -R"select[mem>${mem}] rusage[mem=${mem}] span[hosts=1]" \
      -M ${mem} \
      -n 2 \
      -o bsub.o -e bsub.e \
-     -q basement \
+     -q ${queue} \
      bash scripts/start_nextflow_lsf.sh > bjob.id
 
 # get process PID

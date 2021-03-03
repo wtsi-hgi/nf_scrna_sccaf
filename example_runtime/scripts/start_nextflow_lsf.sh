@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # activate Nextflow conda env
-conda init bash
-eval "$(conda shell.bash hook)"
-conda activate nextflow
+# conda init bash
+# eval "$(conda shell.bash hook)"
+# conda activate nextflow
 
 # run nextflow main.nf with inputs and lsf config:
 export NXF_OPTS="-Xms5G -Xmx5G"
