@@ -9,5 +9,5 @@ RUN apt-get update --yes \
   && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install -U pip \
-  && git clone https://github.com/SCCAF/sccaf \
+  && git clone https://github.com/teamsoranzo/sccaf \
   && pip install --no-cache-dir ./sccaf
